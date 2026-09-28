@@ -10,85 +10,61 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f7fb;
-  color:#172033;
-  padding-bottom:78px;
+  background:#f5f7fb;color:#172033;padding-bottom:78px
 }
-button,select,input,textarea{font:inherit}
+button,select,input{font:inherit}
 button{cursor:pointer;border:0}
 .header{
-  background:#2563eb;
-  color:white;
-  padding:22px 18px 24px;
-  border-radius:0 0 24px 24px;
+  background:#2563eb;color:white;padding:22px 18px 24px;
+  border-radius:0 0 24px 24px
 }
 .brand{font-size:28px;font-weight:800}
 .tagline{margin-top:5px;font-size:14px;opacity:.92}
 .container{max-width:700px;margin:auto;padding:18px}
 .section-title{font-size:21px;font-weight:750;margin:8px 0 14px}
-.state-box{
-  background:white;padding:15px;border-radius:16px;
-  box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:20px
+.state-box,.action,.info,.chat,.service-header,.profile-row{
+  background:white;border-radius:16px;padding:18px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06)
 }
-.state-box label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
+.state-box{margin-bottom:20px}
+.state-box label{
+  display:block;font-size:13px;font-weight:bold;margin-bottom:7px
+}
 select{
   width:100%;padding:12px;border:1px solid #d7dce5;
   border-radius:10px;background:white
 }
-.grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:13px
-}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .card{
-  background:white;border-radius:18px;padding:18px;
-  min-height:145px;box-shadow:0 3px 14px rgba(0,0,0,.06);
-  transition:.15s
+  background:white;border-radius:18px;padding:18px;min-height:145px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06)
 }
 .card:active{transform:scale(.98)}
 .icon{font-size:32px;margin-bottom:12px}
 .card h3{font-size:16px;margin-bottom:6px}
-.card p{font-size:13px;color:#687386;line-height:1.4}
-.action{
-  background:#fff;border-radius:18px;padding:18px;margin-top:18px;
-  box-shadow:0 3px 14px rgba(0,0,0,.06)
+.card p,.action p{font-size:13px;color:#687386;line-height:1.4}
+.action{margin-top:18px}
+.primary,.secondary{
+  width:100%;padding:14px;border-radius:12px;font-weight:bold;margin-top:10px
 }
-.primary{
-  width:100%;padding:14px;background:#2563eb;color:white;
-  border-radius:12px;font-weight:bold;margin-top:10px
-}
-.secondary{
-  width:100%;padding:13px;background:#eef3ff;color:#2563eb;
-  border-radius:12px;font-weight:bold;margin-top:10px
-}
+.primary{background:#2563eb;color:white}
+.secondary{background:#eef3ff;color:#2563eb}
 .hidden{display:none!important}
-.back{
-  background:none;color:#2563eb;font-weight:bold;margin-bottom:15px
-}
-.service-header{
-  background:white;border-radius:18px;padding:20px;
-  box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:15px
-}
+.back{background:none;color:#2563eb;font-weight:bold;margin-bottom:15px}
+.service-header{margin-bottom:15px}
 .service-header h2{margin-bottom:8px}
-.info{
-  background:white;border-radius:16px;padding:18px;
-  margin-bottom:13px;box-shadow:0 3px 14px rgba(0,0,0,.05)
-}
+.info{margin-bottom:13px}
 .info h3{font-size:16px;margin-bottom:10px}
 .info p,.info li{font-size:14px;line-height:1.55;color:#536073}
-.info ul{padding-left:20px}
+.info ul,.info ol{padding-left:20px}
 .check-item{
   display:flex;gap:10px;align-items:flex-start;
   padding:11px 0;border-bottom:1px solid #edf0f4
 }
 .check-item:last-child{border-bottom:0}
 .check-item input{margin-top:4px}
-.chat{
-  background:white;border-radius:18px;padding:15px;
-  box-shadow:0 3px 14px rgba(0,0,0,.06)
-}
-.messages{
-  min-height:220px;max-height:430px;overflow:auto;
-  padding:5px
-}
+.chat{padding:15px}
+.messages{min-height:220px;max-height:430px;overflow:auto;padding:5px}
 .msg{
   padding:12px 14px;border-radius:15px;margin:8px 0;
   max-width:88%;font-size:14px;line-height:1.45
@@ -103,35 +79,26 @@ select{
 .bottom{
   position:fixed;bottom:0;left:0;right:0;height:70px;
   background:white;border-top:1px solid #e5e8ee;
-  display:flex;justify-content:space-around;align-items:center;
-  z-index:10
+  display:flex;justify-content:space-around;align-items:center;z-index:10
 }
 .nav{
-  background:none;color:#667085;font-size:11px;
-  text-align:center;padding:5px 15px
+  background:none;color:#667085;font-size:11px;text-align:center;padding:5px 15px
 }
 .nav span{display:block;font-size:22px;margin-bottom:3px}
 .nav.active{color:#2563eb;font-weight:bold}
-.profile-row{
-  background:white;padding:15px;border-radius:14px;
-  margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.04)
-}
+.profile-row{margin-bottom:10px}
 .profile-row strong{display:block;margin-bottom:5px}
 .profile-row small{color:#697586}
 .notice{
-  background:#fff8e6;border:1px solid #f4d98b;
-  padding:13px;border-radius:12px;font-size:12px;
-  line-height:1.5;color:#6d5517;margin-top:15px
+  background:#fff8e6;border:1px solid #f4d98b;padding:13px;
+  border-radius:12px;font-size:12px;line-height:1.5;color:#6d5517;margin-top:15px
 }
 .file-box{
   border:2px dashed #cbd5e1;border-radius:16px;
   padding:30px 15px;text-align:center;background:white
 }
 .file-box input{margin-top:15px}
-.preview{
-  max-width:100%;max-height:300px;border-radius:12px;margin-top:15px
-}
-.footer{text-align:center;color:#8791a1;font-size:12px;padding:20px}
+.preview{max-width:100%;max-height:300px;border-radius:12px;margin-top:15px}
 @media(max-width:420px){
   .grid{gap:10px}
   .card{padding:15px;min-height:135px}
@@ -141,8 +108,6 @@ select{
 
 <body>
 
-<div id="app">
-
 <header class="header">
   <div class="brand">SevaAI</div>
   <div class="tagline">Government paperwork, made easier</div>
@@ -150,7 +115,6 @@ select{
 
 <main class="container">
 
-<!-- HOME -->
 <section id="homePage">
 
   <div class="state-box">
@@ -226,30 +190,24 @@ select{
 
   <div class="action">
     <h3>🤖 Ask SevaAI</h3>
-    <p style="color:#687386;font-size:14px;margin-top:5px">
-      Ask questions about government paperwork in simple language.
-    </p>
+    <p>Ask questions about government paperwork in simple language.</p>
     <button class="primary" onclick="openChat()">Start a conversation</button>
   </div>
 
   <div class="action">
     <h3>📷 Scan a Document</h3>
-    <p style="color:#687386;font-size:14px;margin-top:5px">
-      Upload or photograph a document to inspect it.
-    </p>
+    <p>Upload or photograph a document to inspect it.</p>
     <button class="secondary" onclick="openScan()">Scan / Upload Document</button>
   </div>
 
   <div class="notice">
-    SevaAI is an independent information tool and is not affiliated with
-    any government department. Information is general guidance. Always
-    verify current requirements with the relevant official authority.
+    SevaAI is an independent information tool and is not affiliated with any
+    government department. Information is general guidance. Always verify
+    current requirements with the relevant official authority.
   </div>
-
 </section>
 
 
-<!-- SERVICE -->
 <section id="servicePage" class="hidden">
   <button class="back" onclick="showPage('homePage')">← Back</button>
 
@@ -277,7 +235,7 @@ select{
 
   <div class="info">
     <h3>Typical application process</h3>
-    <ol id="serviceSteps" style="padding-left:20px"></ol>
+    <ol id="serviceSteps"></ol>
   </div>
 
   <div class="info">
@@ -294,7 +252,6 @@ select{
 </section>
 
 
-<!-- DOCUMENTS -->
 <section id="documentsPage" class="hidden">
   <div class="section-title">Documents</div>
 
@@ -306,20 +263,20 @@ select{
   <div class="info">
     <h3>📷 Document Scanner</h3>
     <p style="color:#687386;font-size:14px;margin-bottom:15px">
-      Upload an image of a document. This demo can preview the image locally.
+      Upload an image of a document. The image is previewed locally.
       AI document analysis can be connected later.
     </p>
 
     <div class="file-box">
       <strong>Select a document image</strong><br>
-      <input type="file" accept="image/*" capture="environment" onchange="previewFile(event)">
+      <input type="file" accept="image/*" capture="environment"
+             onchange="previewFile(event)">
       <div id="previewArea"></div>
     </div>
   </div>
 </section>
 
 
-<!-- CHAT -->
 <section id="chatPage" class="hidden">
   <button class="back" onclick="showPage('homePage')">← Back</button>
 
@@ -334,13 +291,14 @@ select{
   <div class="chat">
     <div class="messages" id="messages">
       <div class="msg bot">
-        Hello! I'm SevaAI. I can help explain government paperwork
+        Hello! 👋 I'm SevaAI. I can help explain government paperwork
         in simple language.
       </div>
     </div>
 
     <div class="chat-row">
-      <input id="chatInput" placeholder="Type your question..."
+      <input id="chatInput"
+             placeholder="Type your question..."
              onkeydown="if(event.key==='Enter')sendMessage()">
       <button class="send" onclick="sendMessage()">Send</button>
     </div>
@@ -355,7 +313,6 @@ select{
 </section>
 
 
-<!-- SCAN -->
 <section id="scanPage" class="hidden">
   <button class="back" onclick="showPage('homePage')">← Back</button>
 
@@ -381,7 +338,6 @@ select{
 </section>
 
 
-<!-- PROFILE -->
 <section id="profilePage" class="hidden">
   <div class="section-title">Profile</div>
 
@@ -421,255 +377,596 @@ select{
 </main>
 
 
-<!-- BOTTOM NAV -->
 <nav class="bottom">
-  <button class="nav active" id="navHome" onclick="navigate('homePage','navHome')">
+  <button class="nav active" id="navHome"
+          onclick="navigate('homePage','navHome')">
     <span>🏠</span>Home
   </button>
 
-  <button class="nav" id="navServices" onclick="navigate('homePage','navServices')">
+  <button class="nav" id="navServices"
+          onclick="navigate('homePage','navServices')">
     <span>📄</span>Services
   </button>
 
-  <button class="nav" id="navDocuments" onclick="navigate('documentsPage','navDocuments')">
+  <button class="nav" id="navDocuments"
+          onclick="navigate('documentsPage','navDocuments')">
     <span>📁</span>Documents
   </button>
 
-  <button class="nav" id="navProfile" onclick="navigate('profilePage','navProfile')">
+  <button class="nav" id="navProfile"
+          onclick="navigate('profilePage','navProfile')">
     <span>👤</span>Profile
   </button>
 </nav>
 
-</div>
-
 
 <script>
+
 const services = {
-  "Income Certificate": {
+
+  "Income Certificate":{
     what:"An income certificate is a document used to record or establish a person's or family's income for purposes where proof of income is required.",
     who:"People who need to demonstrate income for a government scheme, education-related purpose, fee concession, benefit, or another official process.",
-    docs:["Identity document","Address/residence information","Income-related supporting documents","Application form or online application details"],
-    steps:["Check the applicable State/UT authority.","Review the current document requirements.","Submit the application through the applicable channel.","Provide any additional information requested by the authority.","Collect or download the certificate if approved."]
+    docs:[
+      "Identity document",
+      "Address/residence information",
+      "Income-related supporting documents",
+      "Application form or online application details"
+    ],
+    steps:[
+      "Check the applicable State/UT authority.",
+      "Review the current document requirements.",
+      "Submit the application through the applicable channel.",
+      "Provide any additional information requested by the authority.",
+      "Collect or download the certificate if approved."
+    ]
   },
-  "Domicile / Residence Certificate": {
+
+  "Domicile / Residence Certificate":{
     what:"A domicile or residence certificate is used to establish residence or domicile status according to the applicable rules.",
     who:"People who need official proof of residence or domicile for an application, admission, benefit, employment, or other official purpose.",
-    docs:["Identity document","Proof of residence","Application form","Other supporting documents required by the local authority"],
-    steps:["Identify the competent authority.","Check current eligibility requirements.","Prepare the required residence documents.","Submit the application.","Follow the authority's verification and issuance process."]
+    docs:[
+      "Identity document",
+      "Proof of residence",
+      "Application form",
+      "Other supporting documents required by the local authority"
+    ],
+    steps:[
+      "Identify the competent authority.",
+      "Check current eligibility requirements.",
+      "Prepare the required residence documents.",
+      "Submit the application.",
+      "Follow the authority's verification and issuance process."
+    ]
   },
-  "Caste Certificate": {
+
+  "Caste Certificate":{
     what:"A caste certificate is an official document used to record caste/category status where such certification is applicable.",
     who:"Eligible applicants who need official category documentation for a government, education, employment, or other permitted purpose.",
-    docs:["Identity document","Address/residence proof","Existing family or caste-related records where applicable","Application form","Other documents requested by the competent authority"],
-    steps:["Check the applicable rules and competent authority.","Review eligibility and supporting documents.","Submit the application.","Complete verification if required.","Receive the certificate according to the authority's process."]
+    docs:[
+      "Identity document",
+      "Address/residence proof",
+      "Existing family or caste-related records where applicable",
+      "Application form",
+      "Other documents requested by the competent authority"
+    ],
+    steps:[
+      "Check the applicable rules and competent authority.",
+      "Review eligibility and supporting documents.",
+      "Submit the application.",
+      "Complete verification if required.",
+      "Receive the certificate according to the authority's process."
+    ]
   },
-  "Birth Certificate": {
+
+  "Birth Certificate":{
     what:"A birth certificate is an official record of a person's birth.",
     who:"Parents, guardians, individuals, or authorized representatives who need an official record of birth.",
-    docs:["Birth or hospital-related record where available","Parent/guardian identification where applicable","Address information","Registration/application details"],
-    steps:["Identify the applicable birth registration authority.","Check the registration requirements.","Submit the available birth details and supporting records.","Complete verification if required.","Obtain the certificate through the applicable process."]
+    docs:[
+      "Birth or hospital-related record where available",
+      "Parent/guardian identification where applicable",
+      "Address information",
+      "Registration/application details"
+    ],
+    steps:[
+      "Identify the applicable birth registration authority.",
+      "Check the registration requirements.",
+      "Submit the available birth details and supporting records.",
+      "Complete verification if required.",
+      "Obtain the certificate through the applicable process."
+    ]
   }
+
 };
 
-let currentService = "";
-let selectedState = localStorage.getItem("sevaai_state") || "";
+let currentService="";
+let selectedState=localStorage.getItem("sevaai_state")||"";
+
 
 function showPage(id){
-  document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
+  document.querySelectorAll("main section").forEach(function(section){
+    section.classList.add("hidden");
+  });
+
   document.getElementById(id).classList.remove("hidden");
   window.scrollTo(0,0);
 }
 
+
 function navigate(page,navId){
+
   showPage(page);
-  document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
+
+  document.querySelectorAll(".nav").forEach(function(nav){
+    nav.classList.remove("active");
+  });
+
   document.getElementById(navId).classList.add("active");
 
-  if(page==="profilePage") updateProfile();
-  if(page==="documentsPage") updateProgress();
+  if(page==="profilePage"){
+    updateProfile();
+  }
+
+  if(page==="documentsPage"){
+    updateProgress();
+  }
 }
 
+
 function saveState(){
+
   selectedState=document.getElementById("stateSelect").value;
+
   localStorage.setItem("sevaai_state",selectedState);
+
   updateProfile();
 }
 
+
 function openService(name){
+
   currentService=name;
-  const s=services[name];
+
+  const service=services[name];
 
   document.getElementById("serviceTitle").textContent=name;
-  document.getElementById("serviceState").textContent=selectedState || "your selected State/UT";
-  document.getElementById("serviceWhat").textContent=s.what;
-  document.getElementById("serviceWho").textContent=s.who;
 
-  document.getElementById("serviceDocs").innerHTML=s.docs
-    .map((x,i)=>`<li>${x}</li>`).join("");
+  document.getElementById("serviceState").textContent=
+    selectedState||"your selected State/UT";
 
-  document.getElementById("serviceSteps").innerHTML=s.steps
-    .map(x=>`<li>${x}</li>`).join("");
+  document.getElementById("serviceWhat").textContent=service.what;
+
+  document.getElementById("serviceWho").textContent=service.who;
+
+  document.getElementById("serviceDocs").innerHTML=
+    service.docs.map(function(item){
+      return "<li>"+item+"</li>";
+    }).join("");
+
+  document.getElementById("serviceSteps").innerHTML=
+    service.steps.map(function(item){
+      return "<li>"+item+"</li>";
+    }).join("");
 
   const key="check_"+name;
-  let saved=JSON.parse(localStorage.getItem(key)||"[]");
 
-  document.getElementById("checklist").innerHTML=s.docs.map((x,i)=>{
-    const checked=saved.includes(i)?"checked":"";
-    return `<label class="check-item">
-      <input type="checkbox" ${checked} onchange="toggleCheck('${name}',${i},this.checked)">
-      <span>${x}</span>
-    </label>`;
-  }).join("");
+  const saved=JSON.parse(
+    localStorage.getItem(key)||"[]"
+  );
+
+  document.getElementById("checklist").innerHTML=
+    service.docs.map(function(item,index){
+
+      const checked=saved.includes(index)?"checked":"";
+
+      return `
+        <label class="check-item">
+          <input type="checkbox"
+                 ${checked}
+                 onchange="toggleCheck('${name}',${index},this.checked)">
+          <span>${item}</span>
+        </label>
+      `;
+
+    }).join("");
 
   showPage("servicePage");
 }
 
-function toggleCheck(name,index,checked){
-  const key="check_"+name;
-  let saved=JSON.parse(localStorage.getItem(key)||"[]");
 
-  if(checked && !saved.includes(index)) saved.push(index);
-  if(!checked) saved=saved.filter(x=>x!==index);
+function toggleCheck(name,index,checked){
+
+  const key="check_"+name;
+
+  let saved=JSON.parse(
+    localStorage.getItem(key)||"[]"
+  );
+
+  if(checked && !saved.includes(index)){
+    saved.push(index);
+  }
+
+  if(!checked){
+    saved=saved.filter(function(item){
+      return item!==index;
+    });
+  }
 
   localStorage.setItem(key,JSON.stringify(saved));
+
   updateProgress();
 }
 
-function updateProgress(){
-  let total=0,done=0;
 
-  Object.keys(services).forEach(name=>{
-    const saved=JSON.parse(localStorage.getItem("check_"+name)||"[]");
+function updateProgress(){
+
+  let total=0;
+  let done=0;
+
+  Object.keys(services).forEach(function(name){
+
+    const saved=JSON.parse(
+      localStorage.getItem("check_"+name)||"[]"
+    );
+
     total+=services[name].docs.length;
     done+=saved.length;
+
   });
 
-  document.getElementById("savedProgress").textContent =
-    total ? `${done} of ${total} checklist items completed.` : "No checklist activity yet.";
+  document.getElementById("savedProgress").textContent=
+    total
+      ? done+" of "+total+" checklist items completed."
+      : "No checklist activity yet.";
 }
 
-function openChat(){
-  document.getElementById("chatState").textContent =
-    selectedState || "Not selected";
 
-  document.getElementById("chatService").textContent =
-    currentService || "General";
+function openChat(){
+
+  document.getElementById("chatState").textContent=
+    selectedState||"Not selected";
+
+  document.getElementById("chatService").textContent=
+    currentService||"General";
 
   showPage("chatPage");
 }
 
+
 function sendMessage(){
+
   const input=document.getElementById("chatInput");
+
   const text=input.value.trim();
 
   if(!text){
+
     alert("Please type a question first.");
+
     return;
   }
 
   const messages=document.getElementById("messages");
 
-  messages.innerHTML += `<div class="msg user">${escapeHtml(text)}</div>`;
+  messages.innerHTML+=
+    '<div class="msg user">'+escapeHtml(text)+'</div>';
 
   const lower=text.toLowerCase();
-  let answer =
-    "I can help explain the general process, documents, and terminology. " +
-    "Please verify the current requirements with the relevant official authority.";
 
-  if(lower.includes("document") || lower.includes("documents")){
-    answer="The exact documents can vary by State/UT and situation. SevaAI can show common supporting documents, but you should verify the current official list before applying.";
-  }else if(lower.includes("apply") || lower.includes("application")){
-    answer="A typical process involves identifying the competent authority, checking eligibility and documents, submitting the application, completing verification if required, and receiving the certificate.";
-  }else if(lower.includes("fee") || lower.includes("fees")){
-    answer="Application fees, if any, can vary by service and State/UT. Please check the current official application portal or authority for the applicable fee.";
-  }else if(lower.includes("official")){
-    answer="SevaAI is independent and is not a government department. For final requirements, fees, eligibility, and application status, use the relevant official authority.";
+  const service=currentService||"government paperwork";
+
+  const state=selectedState||"your State/UT";
+
+  let answer="";
+
+
+  if(
+    lower.includes("document") ||
+    lower.includes("documents")
+  ){
+
+    answer=
+      "For "+service+", commonly requested documents can include identity proof, "+
+      "address or residence information, application details, and other supporting "+
+      "records depending on the case. Requirements for "+state+
+      " can vary. Please verify the current official document list before applying.";
+
   }
 
-  setTimeout(()=>{
-    messages.innerHTML += `<div class="msg bot">${answer}</div>`;
+  else if(
+    lower.includes("apply") ||
+    lower.includes("application") ||
+    lower.includes("process") ||
+    lower.includes("procedure")
+  ){
+
+    answer=
+      "A typical process for "+service+
+      " is to check eligibility, identify the competent authority, prepare the "+
+      "required documents, submit the application, complete verification if "+
+      "required, and then receive or download the certificate. The exact process "+
+      "in "+state+" may differ.";
+
+  }
+
+  else if(
+    lower.includes("fee") ||
+    lower.includes("fees") ||
+    lower.includes("cost") ||
+    lower.includes("charge")
+  ){
+
+    answer=
+      "Any application fee for "+service+
+      " can depend on the service and State/UT. For "+state+
+      ", please check the current official government portal or competent "+
+      "authority for the applicable fee.";
+
+  }
+
+  else if(
+    lower.includes("eligible") ||
+    lower.includes("eligibility") ||
+    lower.includes("who can")
+  ){
+
+    answer=
+      "Eligibility for "+service+
+      " depends on the applicable rules and the purpose of the certificate. "+
+      "The rules can vary by State/UT, so eligibility should be confirmed "+
+      "with the relevant authority in "+state+".";
+
+  }
+
+  else if(
+    lower.includes("where") ||
+    lower.includes("office") ||
+    lower.includes("portal") ||
+    lower.includes("website")
+  ){
+
+    answer=
+      "Applications for government certificates are generally handled through "+
+      "the competent local or State/UT authority, and some services may also "+
+      "be available through an official online portal. For "+state+
+      ", verify the current official portal or office before submitting an application.";
+
+  }
+
+  else if(
+    lower.includes("status") ||
+    lower.includes("track") ||
+    lower.includes("verification")
+  ){
+
+    answer=
+      "Application status and verification methods depend on the authority "+
+      "handling "+service+". Use the application reference number, if provided, "+
+      "and check the official portal or contact the relevant authority in "+state+".";
+
+  }
+
+  else if(lower.includes("income")){
+
+    answer=
+      "An Income Certificate is generally used as official evidence of income "+
+      "for purposes such as certain government benefits, education-related "+
+      "requirements, concessions, or other official processes. Exact eligibility "+
+      "and documents depend on the applicable rules in "+state+".";
+
+  }
+
+  else if(
+    lower.includes("domicile") ||
+    lower.includes("residence") ||
+    lower.includes("resident")
+  ){
+
+    answer=
+      "A Domicile or Residence Certificate is generally used to establish "+
+      "residence or domicile status under applicable rules. The exact requirements "+
+      "and issuing authority depend on "+state+".";
+
+  }
+
+  else if(
+    lower.includes("caste") ||
+    lower.includes("category")
+  ){
+
+    answer=
+      "A Caste Certificate is used to document caste or category status where "+
+      "such certification is applicable. Eligibility, supporting records, "+
+      "verification, and the issuing authority can vary by "+state+".";
+
+  }
+
+  else if(
+    lower.includes("birth") ||
+    lower.includes("born") ||
+    lower.includes("registration")
+  ){
+
+    answer=
+      "A Birth Certificate is an official record of birth. Birth registration "+
+      "and certificate procedures depend on the applicable registration authority "+
+      "and the circumstances of the birth in "+state+".";
+
+  }
+
+  else if(
+    lower.includes("official") ||
+    lower.includes("government")
+  ){
+
+    answer=
+      "SevaAI is an independent information tool and is not a government "+
+      "department. For final requirements, eligibility, fees, application status, "+
+      "and official decisions, always verify information with the relevant "+
+      "government authority.";
+
+  }
+
+  else if(
+    lower.includes("hello") ||
+    lower.includes("hi") ||
+    lower.includes("hey")
+  ){
+
+    answer=
+      "Hello! 👋 I'm SevaAI. I can help you understand "+service+
+      " and general government paperwork for "+state+
+      ". You can ask me about documents, eligibility, fees, application steps, "+
+      "or verification.";
+
+  }
+
+  else{
+
+    answer=
+      "I can help explain "+service+" for "+state+
+      ". Try asking me about required documents, eligibility, fees, where to "+
+      "apply, the application process, or application status. Remember to verify "+
+      "current requirements with the relevant official authority.";
+
+  }
+
+
+  setTimeout(function(){
+
+    messages.innerHTML+=
+      '<div class="msg bot">'+escapeHtml(answer)+'</div>';
+
     messages.scrollTop=messages.scrollHeight;
+
   },300);
 
+
   input.value="";
+
   messages.scrollTop=messages.scrollHeight;
 }
 
+
 function startVoice(){
-  const SpeechRecognition =
-    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  const SpeechRecognition=
+    window.SpeechRecognition||
+    window.webkitSpeechRecognition;
 
   if(!SpeechRecognition){
+
     alert("Voice input is not supported by this browser.");
+
     return;
   }
 
   const recognition=new SpeechRecognition();
+
   recognition.lang="en-IN";
 
   recognition.onresult=function(event){
-    document.getElementById("chatInput").value =
+
+    document.getElementById("chatInput").value=
       event.results[0][0].transcript;
+
   };
 
   recognition.start();
 }
 
+
 function openScan(){
+
   showPage("scanPage");
+
 }
+
 
 function previewFile(event){
+
   const file=event.target.files[0];
-  if(!file)return;
+
+  if(!file){
+    return;
+  }
 
   const url=URL.createObjectURL(file);
 
-  document.getElementById("previewArea").innerHTML =
-    `<img class="preview" src="${url}" alt="Document preview">
-     <p style="font-size:13px;color:#687386;margin-top:8px">
-     Image loaded locally. AI analysis is not connected in this demo.
-     </p>`;
+  document.getElementById("previewArea").innerHTML=
+    '<img class="preview" src="'+url+'" alt="Document preview">'+
+    '<p style="font-size:13px;color:#687386;margin-top:8px">'+
+    'Image loaded locally. AI analysis is not connected in this demo.'+
+    '</p>';
 }
+
 
 function previewScan(event){
+
   const file=event.target.files[0];
-  if(!file)return;
+
+  if(!file){
+    return;
+  }
 
   const url=URL.createObjectURL(file);
 
-  document.getElementById("scanPreview").innerHTML =
-    `<img class="preview" src="${url}" alt="Document preview">
-     <p style="font-size:13px;color:#687386;margin-top:8px">
-     Document image loaded successfully.
-     </p>`;
+  document.getElementById("scanPreview").innerHTML=
+    '<img class="preview" src="'+url+'" alt="Document preview">'+
+    '<p style="font-size:13px;color:#687386;margin-top:8px">'+
+    'Document image loaded successfully.'+
+    '</p>';
 }
+
 
 function updateProfile(){
-  document.getElementById("profileState").textContent =
-    selectedState || "Not selected";
+
+  document.getElementById("profileState").textContent=
+    selectedState||"Not selected";
+
 }
+
 
 function clearData(){
-  if(confirm("Clear SevaAI's locally saved state and checklist data?")){
+
+  if(
+    confirm(
+      "Clear SevaAI's locally saved state and checklist data?"
+    )
+  ){
+
     localStorage.clear();
+
     selectedState="";
+
     document.getElementById("stateSelect").value="";
+
     updateProfile();
+
     updateProgress();
+
     alert("Local data cleared.");
   }
+
 }
 
+
 function escapeHtml(text){
+
   const div=document.createElement("div");
+
   div.textContent=text;
+
   return div.innerHTML;
 }
 
+
 document.getElementById("stateSelect").value=selectedState;
+
 updateProfile();
+
 updateProgress();
+
 </script>
 
 </body>
