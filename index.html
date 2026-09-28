@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2563eb">
+<title>SevaAI — Government paperwork, made easier</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  padding-bottom:78px;
+}
+button,select,input,textarea{font:inherit}
+button{cursor:pointer;border:0}
+.header{
+  background:#2563eb;
+  color:white;
+  padding:22px 18px 24px;
+  border-radius:0 0 24px 24px;
+}
+.brand{font-size:28px;font-weight:800}
+.tagline{margin-top:5px;font-size:14px;opacity:.92}
+.container{max-width:700px;margin:auto;padding:18px}
+.section-title{font-size:21px;font-weight:750;margin:8px 0 14px}
+.state-box{
+  background:white;padding:15px;border-radius:16px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:20px
+}
+.state-box label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
+select{
+  width:100%;padding:12px;border:1px solid #d7dce5;
+  border-radius:10px;background:white
+}
+.grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:13px
+}
+.card{
+  background:white;border-radius:18px;padding:18px;
+  min-height:145px;box-shadow:0 3px 14px rgba(0,0,0,.06);
+  transition:.15s
+}
+.card:active{transform:scale(.98)}
+.icon{font-size:32px;margin-bottom:12px}
+.card h3{font-size:16px;margin-bottom:6px}
+.card p{font-size:13px;color:#687386;line-height:1.4}
+.action{
+  background:#fff;border-radius:18px;padding:18px;margin-top:18px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06)
+}
+.primary{
+  width:100%;padding:14px;background:#2563eb;color:white;
+  border-radius:12px;font-weight:bold;margin-top:10px
+}
+.secondary{
+  width:100%;padding:13px;background:#eef3ff;color:#2563eb;
+  border-radius:12px;font-weight:bold;margin-top:10px
+}
+.hidden{display:none!important}
+.back{
+  background:none;color:#2563eb;font-weight:bold;margin-bottom:15px
+}
+.service-header{
+  background:white;border-radius:18px;padding:20px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:15px
+}
+.service-header h2{margin-bottom:8px}
+.info{
+  background:white;border-radius:16px;padding:18px;
+  margin-bottom:13px;box-shadow:0 3px 14px rgba(0,0,0,.05)
+}
+.info h3{font-size:16px;margin-bottom:10px}
+.info p,.info li{font-size:14px;line-height:1.55;color:#536073}
+.info ul{padding-left:20px}
+.check-item{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 0;border-bottom:1px solid #edf0f4
+}
+.check-item:last-child{border-bottom:0}
+.check-item input{margin-top:4px}
+.chat{
+  background:white;border-radius:18px;padding:15px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06)
+}
+.messages{
+  min-height:220px;max-height:430px;overflow:auto;
+  padding:5px
+}
+.msg{
+  padding:12px 14px;border-radius:15px;margin:8px 0;
+  max-width:88%;font-size:14px;line-height:1.45
+}
+.bot{background:#eef3ff;margin-right:auto}
+.user{background:#2563eb;color:white;margin-left:auto}
+.chat-row{display:flex;gap:8px;margin-top:10px}
+.chat-row input{
+  flex:1;padding:13px;border:1px solid #d7dce5;border-radius:12px
+}
+.send{background:#2563eb;color:white;padding:0 17px;border-radius:12px}
+.bottom{
+  position:fixed;bottom:0;left:0;right:0;height:70px;
+  background:white;border-top:1px solid #e5e8ee;
+  display:flex;justify-content:space-around;align-items:center;
+  z-index:10
+}
+.nav{
+  background:none;color:#667085;font-size:11px;
+  text-align:center;padding:5px 15px
+}
+.nav span{display:block;font-size:22px;margin-bottom:3px}
+.nav.active{color:#2563eb;font-weight:bold}
+.profile-row{
+  background:white;padding:15px;border-radius:14px;
+  margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.04)
+}
+.profile-row strong{display:block;margin-bottom:5px}
+.profile-row small{color:#697586}
+.notice{
+  background:#fff8e6;border:1px solid #f4d98b;
+  padding:13px;border-radius:12px;font-size:12px;
+  line-height:1.5;color:#6d5517;margin-top:15px
+}
+.file-box{
+  border:2px dashed #cbd5e1;border-radius:16px;
+  padding:30px 15px;text-align:center;background:white
+}
+.file-box input{margin-top:15px}
+.preview{
+  max-width:100%;max-height:300px;border-radius:12px;margin-top:15px
+}
+.footer{text-align:center;color:#8791a1;font-size:12px;padding:20px}
+@media(max-width:420px){
+  .grid{gap:10px}
+  .card{padding:15px;min-height:135px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="app">
+
+<header class="header">
+  <div class="brand">SevaAI</div>
+  <div class="tagline">Government paperwork, made easier</div>
+</header>
+
+<main class="container">
+
+<!-- HOME -->
+<section id="homePage">
+
+  <div class="state-box">
+    <label>Your State / Union Territory</label>
+    <select id="stateSelect" onchange="saveState()">
+      <option value="">Select State / UT</option>
+      <option>Andhra Pradesh</option>
+      <option>Arunachal Pradesh</option>
+      <option>Assam</option>
+      <option>Bihar</option>
+      <option>Chhattisgarh</option>
+      <option>Goa</option>
+      <option>Gujarat</option>
+      <option>Haryana</option>
+      <option>Himachal Pradesh</option>
+      <option>Jharkhand</option>
+      <option>Karnataka</option>
+      <option>Kerala</option>
+      <option>Madhya Pradesh</option>
+      <option>Maharashtra</option>
+      <option>Manipur</option>
+      <option>Meghalaya</option>
+      <option>Mizoram</option>
+      <option>Nagaland</option>
+      <option>Odisha</option>
+      <option>Punjab</option>
+      <option>Rajasthan</option>
+      <option>Sikkim</option>
+      <option>Tamil Nadu</option>
+      <option>Telangana</option>
+      <option>Tripura</option>
+      <option>Uttar Pradesh</option>
+      <option>Uttarakhand</option>
+      <option>West Bengal</option>
+      <option>Andaman and Nicobar Islands</option>
+      <option>Chandigarh</option>
+      <option>Dadra and Nagar Haveli and Daman and Diu</option>
+      <option>Delhi</option>
+      <option>Jammu and Kashmir</option>
+      <option>Ladakh</option>
+      <option>Lakshadweep</option>
+      <option>Puducherry</option>
+    </select>
+  </div>
+
+  <div class="section-title">Certificates & Documents</div>
+
+  <div class="grid">
+    <div class="card" onclick="openService('Income Certificate')">
+      <div class="icon">💰</div>
+      <h3>Income Certificate</h3>
+      <p>Understand the certificate and common application steps.</p>
+    </div>
+
+    <div class="card" onclick="openService('Domicile / Residence Certificate')">
+      <div class="icon">🏠</div>
+      <h3>Domicile / Residence</h3>
+      <p>Learn about residence-related documentation.</p>
+    </div>
+
+    <div class="card" onclick="openService('Caste Certificate')">
+      <div class="icon">📄</div>
+      <h3>Caste Certificate</h3>
+      <p>Understand the process and commonly requested documents.</p>
+    </div>
+
+    <div class="card" onclick="openService('Birth Certificate')">
+      <div class="icon">👶</div>
+      <h3>Birth Certificate</h3>
+      <p>Learn about birth registration and certificates.</p>
+    </div>
+  </div>
+
+  <div class="action">
+    <h3>🤖 Ask SevaAI</h3>
+    <p style="color:#687386;font-size:14px;margin-top:5px">
+      Ask questions about government paperwork in simple language.
+    </p>
+    <button class="primary" onclick="openChat()">Start a conversation</button>
+  </div>
+
+  <div class="action">
+    <h3>📷 Scan a Document</h3>
+    <p style="color:#687386;font-size:14px;margin-top:5px">
+      Upload or photograph a document to inspect it.
+    </p>
+    <button class="secondary" onclick="openScan()">Scan / Upload Document</button>
+  </div>
+
+  <div class="notice">
+    SevaAI is an independent information tool and is not affiliated with
+    any government department. Information is general guidance. Always
+    verify current requirements with the relevant official authority.
+  </div>
+
+</section>
+
+
+<!-- SERVICE -->
+<section id="servicePage" class="hidden">
+  <button class="back" onclick="showPage('homePage')">← Back</button>
+
+  <div class="service-header">
+    <h2 id="serviceTitle"></h2>
+    <p style="color:#687386;font-size:14px">
+      General guidance for <span id="serviceState"></span>.
+    </p>
+  </div>
+
+  <div class="info">
+    <h3>What is it?</h3>
+    <p id="serviceWhat"></p>
+  </div>
+
+  <div class="info">
+    <h3>Who may need it?</h3>
+    <p id="serviceWho"></p>
+  </div>
+
+  <div class="info">
+    <h3>Commonly requested documents</h3>
+    <ul id="serviceDocs"></ul>
+  </div>
+
+  <div class="info">
+    <h3>Typical application process</h3>
+    <ol id="serviceSteps" style="padding-left:20px"></ol>
+  </div>
+
+  <div class="info">
+    <h3>My Checklist</h3>
+    <div id="checklist"></div>
+  </div>
+
+  <button class="primary" onclick="openChat()">🤖 Ask SevaAI about this certificate</button>
+
+  <div class="notice">
+    Requirements can differ by State/UT and may change. This checklist is
+    informational and should not be treated as an official government list.
+  </div>
+</section>
+
+
+<!-- DOCUMENTS -->
+<section id="documentsPage" class="hidden">
+  <div class="section-title">Documents</div>
+
+  <div class="info">
+    <h3>📋 Saved checklist progress</h3>
+    <p id="savedProgress">No checklist activity yet.</p>
+  </div>
+
+  <div class="info">
+    <h3>📷 Document Scanner</h3>
+    <p style="color:#687386;font-size:14px;margin-bottom:15px">
+      Upload an image of a document. This demo can preview the image locally.
+      AI document analysis can be connected later.
+    </p>
+
+    <div class="file-box">
+      <strong>Select a document image</strong><br>
+      <input type="file" accept="image/*" capture="environment" onchange="previewFile(event)">
+      <div id="previewArea"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CHAT -->
+<section id="chatPage" class="hidden">
+  <button class="back" onclick="showPage('homePage')">← Back</button>
+
+  <div class="service-header">
+    <h2>🤖 Ask SevaAI</h2>
+    <p style="color:#687386;font-size:13px;margin-top:5px">
+      State: <span id="chatState"></span><br>
+      Service: <span id="chatService">General</span>
+    </p>
+  </div>
+
+  <div class="chat">
+    <div class="messages" id="messages">
+      <div class="msg bot">
+        Hello! I'm SevaAI. I can help explain government paperwork
+        in simple language.
+      </div>
+    </div>
+
+    <div class="chat-row">
+      <input id="chatInput" placeholder="Type your question..."
+             onkeydown="if(event.key==='Enter')sendMessage()">
+      <button class="send" onclick="sendMessage()">Send</button>
+    </div>
+
+    <button class="secondary" onclick="startVoice()">🎤 Voice input</button>
+  </div>
+
+  <div class="notice">
+    AI responses are for general information only. They are not official
+    government advice and should be independently verified.
+  </div>
+</section>
+
+
+<!-- SCAN -->
+<section id="scanPage" class="hidden">
+  <button class="back" onclick="showPage('homePage')">← Back</button>
+
+  <div class="section-title">📷 Scan a Document</div>
+
+  <div class="info">
+    <p style="color:#687386;font-size:14px;margin-bottom:15px">
+      Choose a document image from your device or use your camera if supported.
+    </p>
+
+    <div class="file-box">
+      <strong>Upload / Capture</strong><br>
+      <input type="file" accept="image/*" capture="environment"
+             onchange="previewScan(event)">
+      <div id="scanPreview"></div>
+    </div>
+  </div>
+
+  <div class="notice">
+    SevaAI does not determine whether a document is officially valid,
+    genuine, accepted, or approved.
+  </div>
+</section>
+
+
+<!-- PROFILE -->
+<section id="profilePage" class="hidden">
+  <div class="section-title">Profile</div>
+
+  <div class="profile-row">
+    <strong>State / UT</strong>
+    <small id="profileState">Not selected</small>
+  </div>
+
+  <div class="profile-row">
+    <strong>Language</strong>
+    <small>English</small>
+  </div>
+
+  <div class="profile-row">
+    <strong>Privacy</strong>
+    <small>Your selections and checklist progress are stored locally in this browser.</small>
+  </div>
+
+  <div class="profile-row">
+    <strong>About SevaAI</strong>
+    <small>Government paperwork, made easier.</small>
+  </div>
+
+  <div class="profile-row">
+    <strong>Developer</strong>
+    <small>Developed by Syed Shadab Zakir</small>
+  </div>
+
+  <button class="secondary" onclick="clearData()">Clear local data</button>
+
+  <div class="notice">
+    SevaAI is an independent application and is not affiliated with,
+    endorsed by, or operated by any government department.
+  </div>
+</section>
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+<nav class="bottom">
+  <button class="nav active" id="navHome" onclick="navigate('homePage','navHome')">
+    <span>🏠</span>Home
+  </button>
+
+  <button class="nav" id="navServices" onclick="navigate('homePage','navServices')">
+    <span>📄</span>Services
+  </button>
+
+  <button class="nav" id="navDocuments" onclick="navigate('documentsPage','navDocuments')">
+    <span>📁</span>Documents
+  </button>
+
+  <button class="nav" id="navProfile" onclick="navigate('profilePage','navProfile')">
+    <span>👤</span>Profile
+  </button>
+</nav>
+
+</div>
+
+
+<script>
+const services = {
+  "Income Certificate": {
+    what:"An income certificate is a document used to record or establish a person's or family's income for purposes where proof of income is required.",
+    who:"People who need to demonstrate income for a government scheme, education-related purpose, fee concession, benefit, or another official process.",
+    docs:["Identity document","Address/residence information","Income-related supporting documents","Application form or online application details"],
+    steps:["Check the applicable State/UT authority.","Review the current document requirements.","Submit the application through the applicable channel.","Provide any additional information requested by the authority.","Collect or download the certificate if approved."]
+  },
+  "Domicile / Residence Certificate": {
+    what:"A domicile or residence certificate is used to establish residence or domicile status according to the applicable rules.",
+    who:"People who need official proof of residence or domicile for an application, admission, benefit, employment, or other official purpose.",
+    docs:["Identity document","Proof of residence","Application form","Other supporting documents required by the local authority"],
+    steps:["Identify the competent authority.","Check current eligibility requirements.","Prepare the required residence documents.","Submit the application.","Follow the authority's verification and issuance process."]
+  },
+  "Caste Certificate": {
+    what:"A caste certificate is an official document used to record caste/category status where such certification is applicable.",
+    who:"Eligible applicants who need official category documentation for a government, education, employment, or other permitted purpose.",
+    docs:["Identity document","Address/residence proof","Existing family or caste-related records where applicable","Application form","Other documents requested by the competent authority"],
+    steps:["Check the applicable rules and competent authority.","Review eligibility and supporting documents.","Submit the application.","Complete verification if required.","Receive the certificate according to the authority's process."]
+  },
+  "Birth Certificate": {
+    what:"A birth certificate is an official record of a person's birth.",
+    who:"Parents, guardians, individuals, or authorized representatives who need an official record of birth.",
+    docs:["Birth or hospital-related record where available","Parent/guardian identification where applicable","Address information","Registration/application details"],
+    steps:["Identify the applicable birth registration authority.","Check the registration requirements.","Submit the available birth details and supporting records.","Complete verification if required.","Obtain the certificate through the applicable process."]
+  }
+};
+
+let currentService = "";
+let selectedState = localStorage.getItem("sevaai_state") || "";
+
+function showPage(id){
+  document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+
+function navigate(page,navId){
+  showPage(page);
+  document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
+  document.getElementById(navId).classList.add("active");
+
+  if(page==="profilePage") updateProfile();
+  if(page==="documentsPage") updateProgress();
+}
+
+function saveState(){
+  selectedState=document.getElementById("stateSelect").value;
+  localStorage.setItem("sevaai_state",selectedState);
+  updateProfile();
+}
+
+function openService(name){
+  currentService=name;
+  const s=services[name];
+
+  document.getElementById("serviceTitle").textContent=name;
+  document.getElementById("serviceState").textContent=selectedState || "your selected State/UT";
+  document.getElementById("serviceWhat").textContent=s.what;
+  document.getElementById("serviceWho").textContent=s.who;
+
+  document.getElementById("serviceDocs").innerHTML=s.docs
+    .map((x,i)=>`<li>${x}</li>`).join("");
+
+  document.getElementById("serviceSteps").innerHTML=s.steps
+    .map(x=>`<li>${x}</li>`).join("");
+
+  const key="check_"+name;
+  let saved=JSON.parse(localStorage.getItem(key)||"[]");
+
+  document.getElementById("checklist").innerHTML=s.docs.map((x,i)=>{
+    const checked=saved.includes(i)?"checked":"";
+    return `<label class="check-item">
+      <input type="checkbox" ${checked} onchange="toggleCheck('${name}',${i},this.checked)">
+      <span>${x}</span>
+    </label>`;
+  }).join("");
+
+  showPage("servicePage");
+}
+
+function toggleCheck(name,index,checked){
+  const key="check_"+name;
+  let saved=JSON.parse(localStorage.getItem(key)||"[]");
+
+  if(checked && !saved.includes(index)) saved.push(index);
+  if(!checked) saved=saved.filter(x=>x!==index);
+
+  localStorage.setItem(key,JSON.stringify(saved));
+  updateProgress();
+}
+
+function updateProgress(){
+  let total=0,done=0;
+
+  Object.keys(services).forEach(name=>{
+    const saved=JSON.parse(localStorage.getItem("check_"+name)||"[]");
+    total+=services[name].docs.length;
+    done+=saved.length;
+  });
+
+  document.getElementById("savedProgress").textContent =
+    total ? `${done} of ${total} checklist items completed.` : "No checklist activity yet.";
+}
+
+function openChat(){
+  document.getElementById("chatState").textContent =
+    selectedState || "Not selected";
+
+  document.getElementById("chatService").textContent =
+    currentService || "General";
+
+  showPage("chatPage");
+}
+
+function sendMessage(){
+  const input=document.getElementById("chatInput");
+  const text=input.value.trim();
+
+  if(!text){
+    alert("Please type a question first.");
+    return;
+  }
+
+  const messages=document.getElementById("messages");
+
+  messages.innerHTML += `<div class="msg user">${escapeHtml(text)}</div>`;
+
+  const lower=text.toLowerCase();
+  let answer =
+    "I can help explain the general process, documents, and terminology. " +
+    "Please verify the current requirements with the relevant official authority.";
+
+  if(lower.includes("document") || lower.includes("documents")){
+    answer="The exact documents can vary by State/UT and situation. SevaAI can show common supporting documents, but you should verify the current official list before applying.";
+  }else if(lower.includes("apply") || lower.includes("application")){
+    answer="A typical process involves identifying the competent authority, checking eligibility and documents, submitting the application, completing verification if required, and receiving the certificate.";
+  }else if(lower.includes("fee") || lower.includes("fees")){
+    answer="Application fees, if any, can vary by service and State/UT. Please check the current official application portal or authority for the applicable fee.";
+  }else if(lower.includes("official")){
+    answer="SevaAI is independent and is not a government department. For final requirements, fees, eligibility, and application status, use the relevant official authority.";
+  }
+
+  setTimeout(()=>{
+    messages.innerHTML += `<div class="msg bot">${answer}</div>`;
+    messages.scrollTop=messages.scrollHeight;
+  },300);
+
+  input.value="";
+  messages.scrollTop=messages.scrollHeight;
+}
+
+function startVoice(){
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if(!SpeechRecognition){
+    alert("Voice input is not supported by this browser.");
+    return;
+  }
+
+  const recognition=new SpeechRecognition();
+  recognition.lang="en-IN";
+
+  recognition.onresult=function(event){
+    document.getElementById("chatInput").value =
+      event.results[0][0].transcript;
+  };
+
+  recognition.start();
+}
+
+function openScan(){
+  showPage("scanPage");
+}
+
+function previewFile(event){
+  const file=event.target.files[0];
+  if(!file)return;
+
+  const url=URL.createObjectURL(file);
+
+  document.getElementById("previewArea").innerHTML =
+    `<img class="preview" src="${url}" alt="Document preview">
+     <p style="font-size:13px;color:#687386;margin-top:8px">
+     Image loaded locally. AI analysis is not connected in this demo.
+     </p>`;
+}
+
+function previewScan(event){
+  const file=event.target.files[0];
+  if(!file)return;
+
+  const url=URL.createObjectURL(file);
+
+  document.getElementById("scanPreview").innerHTML =
+    `<img class="preview" src="${url}" alt="Document preview">
+     <p style="font-size:13px;color:#687386;margin-top:8px">
+     Document image loaded successfully.
+     </p>`;
+}
+
+function updateProfile(){
+  document.getElementById("profileState").textContent =
+    selectedState || "Not selected";
+}
+
+function clearData(){
+  if(confirm("Clear SevaAI's locally saved state and checklist data?")){
+    localStorage.clear();
+    selectedState="";
+    document.getElementById("stateSelect").value="";
+    updateProfile();
+    updateProgress();
+    alert("Local data cleared.");
+  }
+}
+
+function escapeHtml(text){
+  const div=document.createElement("div");
+  div.textContent=text;
+  return div.innerHTML;
+}
+
+document.getElementById("stateSelect").value=selectedState;
+updateProfile();
+updateProgress();
+</script>
+
+</body>
+</html>
